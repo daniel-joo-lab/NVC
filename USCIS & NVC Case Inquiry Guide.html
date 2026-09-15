@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미국 이민청원(I-130) 접수번호 및 과거 기록 역조회 가이드</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              700: '#075985',
+              900: '#0c4a6e',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Google Fonts: Inter & Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+  <!-- Header Banner -->
+  <header class="bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white py-10 px-4 sm:px-6 lg:px-8 border-b border-sky-800/40 shadow-md">
+    <div class="max-w-5xl mx-auto text-center space-y-3">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/20 text-sky-300 border border-sky-400/30">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        USCIS & NVC Case Verification Guide
+      </span>
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white">
+        미국 이민청원(I-130) 접수번호 및 과거 기록 역조회
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        과거 접수된 I-130 영수증 번호(Receipt Number)를 분실했거나 진행 상황 조회가 필요한 경우, 미국 정부 공식 기관을 통해 조회할 수 있는 3가지 핵심 솔루션과 바로가기 링크입니다.
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow space-y-8 w-full">
+    <!-- Notice for Iframe/Preview Environment -->
+    <div class="bg-sky-50 border border-sky-200 rounded-xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs sm:text-sm text-sky-900 shadow-xs">
+      <div class="flex items-center gap-2.5">
+        <svg class="w-5 h-5 text-sky-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+        <span>미리보기 창에서는 브라우저 보안(iframe 샌드박스) 정책으로 외부 링크 열림이 차단될 수 있습니다. 링크 클릭이 안 될 경우 <strong>[URL 복사]</strong> 버튼을 눌러 새 탭에 붙여넣어 주세요.</span>
+      </div>
+    </div>
+
+    <!-- Quick Navigation Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+      <a href="#section-1" class="flex items-center p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-sky-500 hover:shadow-md transition group">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-sky-50 text-sky-600 font-bold text-sm mr-3 group-hover:bg-sky-600 group-hover:text-white transition">1</span>
+        <div>
+          <div class="text-xs text-slate-500 font-medium">온라인 무료 청구</div>
+          <div class="text-sm font-bold text-slate-800">USCIS FOIA 정보공개청구</div>
+        </div>
+      </a>
+      <a href="#section-2" class="flex items-center p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-amber-500 hover:shadow-md transition group">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-amber-50 text-amber-600 font-bold text-sm mr-3 group-hover:bg-amber-600 group-hover:text-white transition">2</span>
+        <div>
+          <div class="text-xs text-slate-500 font-medium">초청인 전화 연결</div>
+          <div class="text-sm font-bold text-slate-800">USCIS 고객센터 본인조회</div>
+        </div>
+      </a>
+      <a href="#section-3" class="flex items-center p-3.5 rounded-xl bg-white border border-slate-200 shadow-sm hover:border-emerald-500 hover:shadow-md transition group">
+        <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 font-bold text-sm mr-3 group-hover:bg-emerald-600 group-hover:text-white transition">3</span>
+        <div>
+          <div class="text-xs text-slate-500 font-medium">2010년경 접수건 적합</div>
+          <div class="text-sm font-bold text-slate-800">NVC 온라인 역조회 문의</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Method 1: FOIA Request -->
+    <section id="section-1" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+      <div class="p-6 sm:p-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-sky-600 text-white font-bold text-base shadow">1</span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-slate-900">USCIS FOIA (정보공개청구) 신청</h2>
+              <p class="text-xs text-slate-500">가장 확실하고 공식적인 서류 전체 확보 대안</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            가장 확실한 대안
+          </span>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          미국 정보자유법(FOIA: Freedom of Information Act)에 따라 이민국(USCIS)에 본인 또는 초청인 명의의 과거 이민 청원 기록 일체를 공식 청구하는 방법입니다.
+        </p>
+
+        <!-- Bullet Key Information -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 text-sm bg-slate-50 p-4 rounded-xl border border-slate-100">
+          <div class="space-y-1">
+            <span class="font-semibold text-xs text-sky-700 uppercase tracking-wide">신청 채널</span>
+            <p class="text-slate-700 font-medium"><strong class="text-slate-900 font-semibold">USCIS FIRST 시스템</strong>을 통해 온라인으로 <span class="text-emerald-700 font-semibold">무료 신청 가능</span></p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-semibold text-xs text-sky-700 uppercase tracking-wide">신청 주체</span>
+            <p class="text-slate-700">초청인(미국 시민권자) 또는 주 신청자(수혜자 본인)</p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-semibold text-xs text-sky-700 uppercase tracking-wide">입력 정보</span>
+            <p class="text-slate-700">초청인 및 수혜자의 영문 성명, 생년월일, 출생국, 거주지 이력 등 인적사항</p>
+          </div>
+          <div class="space-y-1">
+            <span class="font-semibold text-xs text-sky-700 uppercase tracking-wide">결과 수령 (통상 3~6주 소요)</span>
+            <p class="text-slate-700">청구 승인 시 과거 접수된 <strong>Form I-130 원본 스캔본</strong>, <strong>접수증 번호(Receipt Number)</strong>, <strong>우선일자(Priority Date)</strong>, <strong>승인 통지서</strong> 일체가 포함된 <strong>A-File(외국인 파일) PDF 다운로드</strong></p>
+          </div>
+        </div>
+
+        <!-- Official Action Links -->
+        <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3">
+          <div class="flex items-center gap-1.5">
+            <a href="https://first.uscis.gov/" target="_blank" rel="noopener noreferrer" onclick="safeOpenLink(event, 'https://first.uscis.gov/')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-sky-600 text-white text-sm font-semibold hover:bg-sky-700 transition shadow-sm cursor-pointer">
+              <span>USCIS FIRST 온라인 신청 포털</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+            <button onclick="copyToClipboard('https://first.uscis.gov/', 'USCIS FIRST 링크(https://first.uscis.gov/)가 복사되었습니다.')" title="URL 복사" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition text-xs flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+              <span>복사</span>
+            </button>
+          </div>
+
+          <div class="flex items-center gap-1.5">
+            <a href="https://www.uscis.gov/records/request-records-through-the-freedom-of-information-act-or-privacy-act" target="_blank" rel="noopener noreferrer" onclick="safeOpenLink(event, 'https://www.uscis.gov/records/request-records-through-the-freedom-of-information-act-or-privacy-act')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-50 transition cursor-pointer">
+              <span>USCIS FOIA 공식 안내</span>
+              <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+            <button onclick="copyToClipboard('https://www.uscis.gov/records/request-records-through-the-freedom-of-information-act-or-privacy-act', 'FOIA 공식 안내 링크가 복사되었습니다.')" title="URL 복사" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition text-xs flex items-center gap-1">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+              <span>복사</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method 2: USCIS Contact Center -->
+    <section id="section-2" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+      <div class="p-6 sm:p-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-amber-500 text-white font-bold text-base shadow">2</span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-slate-900">USCIS 고객센터(Contact Center) 본인 확인 조회</h2>
+              <p class="text-xs text-slate-500">초청인이 직접 전화하여 구두로 신속하게 확인</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+            초청인 직접 통화
+          </span>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          초청인이 미국 이민국 대표번호로 직접 전화를 걸어 본인 확인 후 구두로 조회를 요청할 수 있습니다.
+        </p>
+
+        <!-- Call box and IVR tips -->
+        <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-4">
+          <!-- Dial Box -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
+            <div class="flex items-center gap-3">
+              <div class="p-2.5 bg-amber-50 text-amber-600 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              </div>
+              <div>
+                <span class="text-xs text-slate-500 font-medium">전화번호 (미국 현지 통화)</span>
+                <div class="text-lg font-bold text-slate-900 tracking-wide">1-800-375-5283</div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <a href="tel:18003755283" class="px-3.5 py-2 text-xs font-semibold rounded-lg bg-slate-900 text-white hover:bg-slate-800 transition">전화 걸기</a>
+              <button onclick="copyToClipboard('1-800-375-5283', '전화번호(1-800-375-5283)가 복사되었습니다.')" class="px-3.5 py-2 text-xs font-medium rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 transition">번호 복사</button>
+            </div>
+          </div>
+
+          <!-- Procedure details -->
+          <div class="space-y-2 text-sm text-slate-700">
+            <div class="font-bold text-slate-900 flex items-center gap-1.5">
+              <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+              진행 요령 및 상담원 연결 키워드
+            </div>
+            <ul class="list-disc list-inside space-y-1 text-xs sm:text-sm pl-1 text-slate-600">
+              <li>자동응답(IVR)에서 <code class="px-2 py-0.5 bg-amber-100/80 text-amber-900 rounded font-mono font-semibold">"Infopass"</code> 또는 <code class="px-2 py-0.5 bg-amber-100/80 text-amber-900 rounded font-mono font-semibold">"Lost Receipt Number"</code>를 발음하여 상담원 연결</li>
+              <li>상담원 연결 후, <strong>초청인의 인적사항(SSN, 생년월일, 주소)</strong> 및 <strong>수혜자(한국 가족)의 영문 정보</strong>를 바탕으로 전산에 등록된 I-130 영수증 번호 조회를 요청</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="pt-1 flex flex-wrap items-center gap-2">
+          <a href="https://www.uscis.gov/contactcenter" target="_blank" rel="noopener noreferrer" onclick="safeOpenLink(event, 'https://www.uscis.gov/contactcenter')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white border border-slate-300 text-slate-700 text-sm font-medium hover:bg-slate-50 transition cursor-pointer">
+            <span>USCIS Contact Center 안내 바로가기</span>
+            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+          <button onclick="copyToClipboard('https://www.uscis.gov/contactcenter', 'USCIS 고객센터 링크(https://www.uscis.gov/contactcenter)가 복사되었습니다.')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition text-xs flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            <span>복사</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Method 3: NVC Public Inquiry -->
+    <section id="section-3" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-md transition">
+      <div class="p-6 sm:p-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+          <div class="flex items-center space-x-3">
+            <span class="flex items-center justify-center w-9 h-9 rounded-xl bg-emerald-600 text-white font-bold text-base shadow">3</span>
+            <div>
+              <h2 class="text-lg sm:text-xl font-bold text-slate-900">NVC Public Inquiry(공식 온라인 문의)에 인적사항만으로 역조회 요청</h2>
+              <p class="text-xs text-slate-500">2010년경 접수되어 이미 이민국 승인 후 NVC로 이관된 케이스</p>
+            </div>
+          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            NVC 이관 케이스 적합
+          </span>
+        </div>
+
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+          이미 접수 시기가 2010년경으로 이민국 승인 후 국립비자센터(NVC)로 서류가 이관되었을 시점이므로, <strong>영수증 번호 없이도 NVC에 조회를 넣을 수 있습니다.</strong>
+        </p>
+
+        <!-- Input Guidelines Grid -->
+        <div class="space-y-3">
+          <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wide">입력 방법 가이드</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <span class="font-bold text-emerald-700 text-xs block">Receipt Number 란 입력 팁</span>
+              <p class="text-slate-600">영수증 번호 란에 <span class="font-semibold text-slate-800">모른다고 기재</span>하거나 공란 처리 후 문의 내용(Inquiry Content)에 세부 정보 명시</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <span class="font-bold text-emerald-700 text-xs block">초청인 정보</span>
+              <p class="text-slate-600">초청인의 영문 성명, 생년월일, 미국 주소, 연락처 기재</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <span class="font-bold text-emerald-700 text-xs block">주 수혜자 정보</span>
+              <p class="text-slate-600">주 수혜자의 영문 성명, 생년월일, 국적, 한국 가족관계증명서 영문 정보</p>
+            </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200/80 space-y-1">
+              <span class="font-bold text-emerald-700 text-xs block">접수 정보 및 요청 사항</span>
+              <p class="text-slate-600">대략적인 접수 연도(예: 2010년경 Form I-130 가족이민 F4 청원)를 명시하고, "I-130 승인 영수증 번호를 분실하였으니 전산 대조 후 NVC 케이스 번호와 Invoice ID를 회신해달라"고 요청</p>
+            </div>
+          </div>
+
+          <!-- English Request Template -->
+          <div class="bg-slate-900 rounded-xl p-4 text-slate-200 space-y-2 mt-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-400 font-semibold">문의 내용(Inquiry Content) 영문 서식 예시</span>
+              <button onclick="copyTemplate()" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg border border-slate-700 transition flex items-center gap-1.5 cursor-pointer">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"></path></svg>
+                서식 복사
+              </button>
+            </div>
+            <pre id="inquiry-text" class="text-xs font-mono whitespace-pre-wrap leading-relaxed text-slate-300 bg-slate-950 p-3.5 rounded-lg border border-slate-800 select-all">Dear NVC Support Team,
+
+I am requesting information regarding a Form I-130 petition filed around 2010. Unfortunately, the original USCIS receipt number has been misplaced. Could you please check your system using the petitioner and beneficiary details below and provide our NVC Case Number and Invoice ID Number?
+
+1. Petitioner Information:
+- Full Name: [초청인 영문 성명]
+- Date of Birth: [MM/DD/YYYY]
+- US Address: [초청인 미국 주소]
+- Phone: [연락처]
+
+2. Principal Beneficiary Information:
+- Full Name: [주 수혜자 영문 성명]
+- Date of Birth: [MM/DD/YYYY]
+- Country of Birth / Nationality: South Korea
+
+3. Petition Details:
+- Petition Type: Form I-130 (Family Preference F4 - Siblings)
+- Approximate Filing Year: Around 2010
+
+Thank you very much for your assistance.</pre>
+          </div>
+        </div>
+
+        <!-- Action Links -->
+        <div class="pt-2 flex flex-wrap items-center gap-2">
+          <a href="https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html" target="_blank" rel="noopener noreferrer" onclick="safeOpenLink(event, 'https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html')" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition shadow-sm cursor-pointer">
+            <span>NVC Public Inquiry Form 바로가기 (Ask NVC)</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+          <button onclick="copyToClipboard('https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/ask-nvc.html', 'NVC Inquiry Form 링크가 복사되었습니다.')" class="p-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl border border-slate-300 transition text-xs flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+            <span>복사</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Summary Comparison Table -->
+    <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm space-y-4">
+      <h3 class="text-base sm:text-lg font-bold text-slate-900">3가지 역조회 방식 요약 및 비교</h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 bg-slate-50 text-xs font-semibold text-slate-600">
+              <th class="p-3">방식</th>
+              <th class="p-3">소요 기간</th>
+              <th class="p-3">비용</th>
+              <th class="p-3">주요 특징</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 text-slate-700 text-xs sm:text-sm">
+            <tr>
+              <td class="p-3 font-semibold text-sky-700">1. USCIS FOIA</td>
+              <td class="p-3">약 3 ~ 6주</td>
+              <td class="p-3 text-emerald-600 font-semibold">무료</td>
+              <td class="p-3 text-slate-600">원본 I-130 스캔본, 영수증 번호, 승인 통지서가 포함된 A-File PDF 전체를 확보 가능</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-amber-700">2. USCIS 전화 조회</td>
+              <td class="p-3">통화 당일 (즉시)</td>
+              <td class="p-3 text-emerald-600 font-semibold">무료</td>
+              <td class="p-3 text-slate-600">미국 거주 초청인이 직접 전화하여 구두로 접수번호만 빠르게 확인하기에 적합</td>
+            </tr>
+            <tr>
+              <td class="p-3 font-semibold text-emerald-700">3. NVC 온라인 문의</td>
+              <td class="p-3">약 1 ~ 3주 (이메일 회신)</td>
+              <td class="p-3 text-emerald-600 font-semibold">무료</td>
+              <td class="p-3 text-slate-600">2010년경 접수되어 이미 NVC로 이관된 케이스의 Case Number와 Invoice ID 조회에 최적</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Toast Notification Box -->
+  <div id="toast" class="fixed bottom-5 right-5 transform translate-y-20 opacity-0 transition-all duration-300 bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 text-sm z-50 pointer-events-none">
+    <svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+    <span id="toast-message">클립보드에 복사되었습니다.</span>
+  </div>
+
+  <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs text-slate-500">
+    <p>본 가이드는 미국 이민국(USCIS) 및 국무부 국립비자센터(NVC) 공식 안내 절차를 바탕으로 제작되었습니다.</p>
+    <p class="mt-1 text-slate-400">우측 상단의 Preview 버튼을 통해 렌더링된 화면을 확인하고 직접 링크 및 복사 기능을 사용할 수 있습니다.</p>
+  </footer>
+
+  <script>
+    // Safe link opener for sandboxed iframe environments
+    function safeOpenLink(event, url) {
+      try {
+        const opened = window.open(url, '_blank', 'noopener,noreferrer');
+        if (!opened || opened.closed || typeof opened.closed === 'undefined') {
+          // If popup is blocked by iframe policy, copy URL automatically and notify user
+          copyToClipboard(url, '새 창이 차단되어 링크가 클립보드에 복사되었습니다. 새 탭 주소창에 붙여넣어 주세요.');
+        }
+      } catch (e) {
+        copyToClipboard(url, '링크가 복사되었습니다. 브라우저 주소창에 붙여넣어 주세요.');
+      }
+    }
+
+    // Copy helper using fallback execCommand for iframe compatibility
+    function copyToClipboard(text, message) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.setAttribute('readonly', '');
+      textarea.style.position = 'absolute';
+      textarea.style.left = '-9999px';
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand('copy');
+        showToast(message || '클립보드에 복사되었습니다.');
+      } catch (err) {
+        console.error('Copy failed:', err);
+      }
+
+      document.body.removeChild(textarea);
+    }
+
+    function copyTemplate() {
+      const templateEl = document.getElementById('inquiry-text');
+      if (templateEl) {
+        copyToClipboard(templateEl.innerText, '문의용 영문 서식 예시가 복사되었습니다.');
+      }
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+      toastMsg.innerText = message;
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
